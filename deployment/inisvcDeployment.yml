@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inisvc-deployment
+  #namespace: jhdigital-gateway-services
+spec:
+  selector:
+    matchLabels:
+      app: inisvc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: inisvc
+    spec:
+      containers:
+      - name: inisvc
+        image: upendra409/inisvc
+        ports:
+        - containerPort: 52001
+        env:
+        - name: "ASPNETCORE_ENVIRONMENT"
+          value: "Kubernetes"
+        - name: "Eventservice__url"
+          value: "http://eventsapi-nodeport.jhdigital-common-services.svc.cluster.local/api/events"
+        - name: "TasksXApiKey"
+          value: "06795D9D-A770-44B9-9B27-03C6ABDB1BAE"
+        resources:
+          limits:
+            cpu: 250m
+          requests:
+            cpu: 100m
+      #initContainers:
+      #- name: init-evtsvc
+      #  image: busybox:1.28
+      #  command: ['sh', '-c', 'until nslookup eventsapi-nodeport.jhdigital-common-services; do echo waiting for rabbitmq; sleep 1; done;']
