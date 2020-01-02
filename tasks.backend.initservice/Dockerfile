@@ -23,7 +23,7 @@ NEW_RELIC_APP_NAME=initservice
 
 WORKDIR /tasks.backend.initservice
 COPY --from=build /tasks.backend.initservice/out .
-ENV ASPNETCORE_URLS http://*:52001
+ENV ASPNETCORE_URLS http://*:52101
 ENV ASPNETCORE_ENVIRONMENT Docker
 #ENV RedisConnection 192.168.99.101:30379
 ENTRYPOINT ["dotnet", "tasks.backend.initservice.dll"]

@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: inisvc-deployment
-  #namespace: jhdigital-gateway-services
+  name: inisvc1-deployment
+  namespace: jhdigital-gateway-services
 spec:
   selector:
     matchLabels:
-      app: inisvc
+      app: inisvc1
   replicas: 1
   template:
     metadata:
       labels:
-        app: inisvc
+        app: inisvc1
     spec:
       containers:
       - name: inisvc
-        image: upendra409/inisvc
+        image: upendra409/tasks.backend.initservice:#{Build.BuildId}#
         ports:
-        - containerPort: 52001
+        - containerPort: 52101
         env:
         - name: "ASPNETCORE_ENVIRONMENT"
           value: "Kubernetes"
