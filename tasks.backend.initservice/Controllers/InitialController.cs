@@ -32,7 +32,7 @@ namespace tasks.backend.initservice.Controllers
         {
             eventLog = "api get call --" + System.Guid.NewGuid().ToString() + " : " + System.DateTimeOffset.Now.ToString();
             Console.WriteLine(eventLog);
-            string jsonString = "{name:Harry Potter, title:The Chosen One}";
+            string jsonString = "{name:Logan, title:The Wolverine}";
             //return Ok(await _taskService.GetTasks("Kingslayer"));
             eventLog = "api get call ++" + System.Guid.NewGuid().ToString() + " : " + System.DateTimeOffset.Now.ToString();
             Console.WriteLine(eventLog);
