@@ -32,6 +32,7 @@ namespace tasks.backend.initservice.Controllers
         {
             eventLog = "api get call --" + System.Guid.NewGuid().ToString() + " : " + System.DateTimeOffset.Now.ToString();
             Console.WriteLine(eventLog);
+            Console.WriteLine(eventLog);
             string jsonString = "{name:Clark Kent, title:Superman}";
             //return Ok(await _taskService.GetTasks("Kingslayer"));
             eventLog = "api get call ++" + System.Guid.NewGuid().ToString() + " : " + System.DateTimeOffset.Now.ToString();
